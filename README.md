@@ -6,13 +6,18 @@ This is a repo to create the functions for the Our World In Data (OWID) indicato
 
 ### Consolidated Indicators
 
-These are the indicators that will be coded, each with their individual function. 
+The FGT poverty measure, indexed by $\alpha$, is found by:
 
-$$P_{\alpha} = \frac{1}{n}\Sigma^{q}_{i=1} \left( \frac{z-y_i}{z} \right)^{\alpha}$$
+$$P_{\alpha} = \frac{1}{n}\Sigma^{q}_{i=1} w_i \left( \frac{z-y_i}{z} \right)^{\alpha}$$
 
-1. Foster-Greer-Thorbecke (FGT) poverty indices, denoted $P_{\alpha}$ for each $\alpha$ - get_fgt_poverty_measure
-2. Headcount ratio - $P_{0}$ - get_pov_headcount_ratio
-3. Number of people living below \$x
+The following measures are calculated in separate functions, each in their own scripts found in `/code`. 
+The structure of each numbered point is 
+
+* Indicator name - calculation - function_name
+
+1. Foster-Greer-Thorbecke (FGT) poverty indices - $P_{\alpha}$ as above - get_fgt_poverty_measure
+2. Headcount ratio - $P_{0}$ - get_poverty_headcount_ratio
+3. Number of people living below \$x - $P_{0} \times PopulationSize$ at specified threshold - get_number_below_threshold
 4. Average shortfall
 5. Total shortfall
 6. Income gap ratio
