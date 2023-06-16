@@ -9,8 +9,8 @@ get_fgt_poverty_measure <- function(
     stopifnot(is.numeric(welfare_measure) & is.vector(welfare_measure))
     stopifnot(is.numeric(weights) & is.vector(weights))
     stopifnot(length(weights)==length(welfare_measure)) # both vectors must be same length
-    if(length(weights)=1)warning("the `weights` input should usually be a vector of length>1")
-    if(length(welfare_measure)=1)warning("the `welfare_measure` input should usually be a vector of length>1")
+    if(length(weights)==1)warning("the `weights` input should usually be a vector of length>1")
+    if(length(welfare_measure)==1)warning("the `welfare_measure` input should usually be a vector of length>1")
 
     # n - Population size
     n <- length(welfare_measure) # number of observations (individuals/households)
@@ -28,13 +28,6 @@ get_fgt_poverty_measure <- function(
     return(fgt_measure)
 
 }
-
-
-get_fgt_poverty_measure(
-    alpha = 3, poverty_line = 10, welfare_measure = sample(x = seq(from = 0, to = 20, by = 0.1), prob = rep(1/201, 201)), weights = rep(1)
-)
-
-
 
 
 

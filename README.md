@@ -10,8 +10,8 @@ These are the indicators that will be coded, each with their individual function
 
 $$P_{\alpha} = \frac{1}{n}\Sigma^{q}_{i=1} \left( \frac{z-y_i}{z} \right)^{\alpha}$$
 
-1. Foster-Greer-Thorbecke (FGT) poverty indices, denoted $P_{\alpha}$ for each $\alpha$
-2. Headcount ratio - $P_{0}$
+1. Foster-Greer-Thorbecke (FGT) poverty indices, denoted $P_{\alpha}$ for each $\alpha$ - get_fgt_poverty_measure
+2. Headcount ratio - $P_{0}$ - get_pov_headcount_ratio
 3. Number of people living below \$x
 4. Average shortfall
 5. Total shortfall
