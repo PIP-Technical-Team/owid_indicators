@@ -10,6 +10,8 @@ The FGT poverty measure, indexed by $\alpha$, is found by:
 
 $$P_{\alpha} = \frac{1}{n}\Sigma^{q}_{i=1} w_i \left( \frac{z-y_i}{z} \right)^{\alpha}$$
 
+Also, let $n$ be the total size of the population, while $n_p$ is the total poor (at relevant poverty line). 
+
 The following measures are calculated in separate functions, each in their own scripts found in `/code`. 
 The structure of each numbered point is 
 
@@ -17,8 +19,8 @@ The structure of each numbered point is
 
 1. Foster-Greer-Thorbecke (FGT) poverty indices - $P_{\alpha}$ as above - get_fgt_poverty_measure
 2. Headcount ratio - $P_{0}$ - get_poverty_headcount_ratio
-3. Number of people living below \$x - $P_{0} \times PopulationSize$ at specified threshold - get_number_below_threshold
-4. Average shortfall
+3. Number of people living below \$x - $P_{0} \times n$ at specified threshold - get_number_below_threshold
+4. Average shortfall (for the poor) - $P_1 \times \frac{n}{n_p} = \frac{P_1}{P_0}$ - get_average_shortfall
 5. Total shortfall
 6. Income gap ratio
 7. Poverty gap ratio - $P_{1}$
