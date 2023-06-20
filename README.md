@@ -10,32 +10,32 @@ The FGT poverty measure, indexed by $\alpha$, is found by:
 
 $$P_{\alpha} = \frac{1}{n}\Sigma^{q}_{i=1} w_i \left( \frac{z-y_i}{z} \right)^{\alpha}$$
 
-Also, let $n$ be the total size of the population, while $n_p$ is the total poor (at relevant poverty line). 
+Also, let $n$ be the total size of the population, while $n_p$ is the total poor (at relevant poverty line), $z$ is the relevant, specified poverty line, $y_i$ is the welfare measure for observation $i$, $w_i$ is the relevant survey weights.
 
 The following measures are calculated in separate functions, each in their own scripts found in `/code`. 
-The structure of each numbered point is 
+The structure of each numbered point is:
 
 * Indicator name - calculation - function_name
 
 1. Foster-Greer-Thorbecke (FGT) poverty indices - $P_{\alpha}$ as above - get_fgt_poverty_measure
 2. Headcount ratio - $P_{0}$ - get_poverty_headcount_ratio
 3. Number of people living below \$x - $P_{0} \times n$ at specified threshold - get_number_below_threshold
-4. Average shortfall (for the poor) - $P_1 \times \frac{n}{n_p} = \frac{P_1}{P_0}$ - get_average_shortfall
-5. Total shortfall
-6. Income gap ratio
+4. Average shortfall (for the poor) - $P_1 \times z \times \frac{n}{n_p} = \frac{P_1}{P_0}$ - get_average_shortfall
+5. Total shortfall - $n \times P_1$ - get_total_shortfall
+6. Income gap ratio - $P_1 \times \frac{n}{n_p} = \frac{P_1}{P_0}$
 7. Poverty gap ratio - $P_{1}$
 8. Share of population living below \x% of the median
-9. Mean
-10. Median
-11. Decile average (mean for decile), share (proportion of the entire pop), level (level below which entire decile falls)
-12. Decile share (proportion of the entire pop), level (level below which entire decile falls)
+9. Mean - get_decile_mean
+10. Median - get_decile_median
+11. Decile average (mean for decile), share (proportion of the entire pop), level (level below which entire decile falls) - get_decile_welfare
+12. Decile welfare share (proportion of the entire pop), level (level below which entire decile falls)
 13. Decile level (level below which entire decile falls)
-14. Percentile ratio, default Palma p10/p90
+14. Percentile ratio (pX/pY), default Palma p10/p90
 Gini
 MLD (what?)
 Wolfson polarization index
 
-
+Additional functions: get_weighted_median 
 
 ### PowerPoint
 
@@ -50,7 +50,7 @@ The indicators according to slide 2 of the PowerPoint in */bin/indicators_needed
 8. Median
 10. Deciles 1-10 (average, share, threshold)
 11. Gini
-12. MLD
+12. MLD- get_mean_log_dev - $\frac{1}{\Sigma^N_{i=1} w_i} \Sigma^N_{i=1} w_i (ln\bar{x} - ln x_i)$, where $\bar{x}$ is weighted mean
 13. Polarization index (Wolfson polarization index)
 14. Palma ratio (P10/P90)
 15. Share total income P20/P80, P10/P90, P50/P90, P10/P50

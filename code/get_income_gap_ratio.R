@@ -1,21 +1,20 @@
-### get_average_shortfall ###
+### get_income_gap_ratio ###
 
 
-get_average_shortfall <- function(
+get_income_gap_ratio <- function(
     poverty_line,
     welfare_measure,
     weights = rep(1, length(welfare_measure))/length(welfare_measure)
 ){
 
-    # = poverty_line*P_1 multiplied by total population size and divided by total size of poor population
-    # = poverty_line*P_1/P_0, because P_0 = n_p/n
-    # Note, P_1 is FGT with alpha = 1
-    # i.e. the average distance from poverty line for the poor
+    # = P_1/P_0
+    # Note, P_1 is FGT with alpha = 1, P_0 is FGT with alpha = 0
+    # i.e. the ratio (total diff between welfare and pov line for the poor : pov line) per population
 
     # input checks are the same as in `get_fgt_poverty_measure`
     #   therefore need not give again
 
-    # Get P_0
+    # P_0
     P0 <- get_fgt_poverty_measure(
         0,
         poverty_line = poverty_line,
@@ -23,7 +22,7 @@ get_average_shortfall <- function(
         weights = weights
     )
 
-    # Get P_1
+    # P_1
     P1 <- get_fgt_poverty_measure(
         1,
         poverty_line = poverty_line,
@@ -31,15 +30,12 @@ get_average_shortfall <- function(
         weights = weights
     )
 
-    # Calculate average shortfall
-    av_shortfall <- poverty_line*P1/P0
+    # Income Gap Ratio
+    income_gap_ratio <- P1/P0
 
     # Return
-    return(av_shortfall)
+    return(income_gap_ratio)
 
 
 }
-
-
-
 

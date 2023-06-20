@@ -2,7 +2,9 @@
 
 
 get_number_below_threshold <- function(
-    threshold, welfare_measure, weights
+    threshold,
+    welfare_measure,
+    weights = rep(1, length(welfare_measure))/length(welfare_measure)
 ){
     # = headcount ratio multiplied by total population
     # Note, poverty headcount ratio is FGT with alpha = 0

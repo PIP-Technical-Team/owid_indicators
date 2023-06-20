@@ -1,7 +1,10 @@
 ### get_fgt_poverty_measure ###
 
 get_fgt_poverty_measure <- function(
-    alpha, poverty_line, welfare_measure, weights
+    alpha,
+    poverty_line,
+    welfare_measure,
+    weights = rep(1, length(welfare_measure))/length(welfare_measure)
 ){
     # do argument checks - all numeric, weights & welfare measure should be vectors
     stopifnot(is.numeric(alpha) & is.vector(alpha))
