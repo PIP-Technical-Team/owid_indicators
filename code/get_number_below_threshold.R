@@ -1,6 +1,13 @@
-### get_number_below_threshold ###
-
-
+#' Calculate the number of observations below a chosen threshold of welfare
+#'
+#' @param threshold A numeric value giving the threshold, in the same units as the welfare measure
+#' @param welfare_measure Numeric vector giving welfare for each observation
+#' @param weights Numeric vector giving weights for each observation
+#'
+#' @return Scalar giving the number of observations with welfare below the chosen threshold
+#' @export
+#'
+#' @examples
 get_number_below_threshold <- function(
     threshold,
     welfare_measure,

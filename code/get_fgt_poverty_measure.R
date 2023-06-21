@@ -1,5 +1,14 @@
-### get_fgt_poverty_measure ###
-
+#' Calculate the Foster-Greer-Thorbecke poverty measure for the chosen alpha value
+#'
+#' @param alpha Non-negative integer giving the index for the FGT poverty measure
+#' @param poverty_line Numeric value giving chosen poverty line, in the same units as the welfare measure
+#' @param welfare_measure Numeric vector giving the welfare for each observation
+#' @param weights Numeric vector giving the weights for each observation
+#'
+#' @return A scalar giving the FGT poverty measure for chosen alpha and poverty line
+#' @export
+#'
+#' @examples
 get_fgt_poverty_measure <- function(
     alpha,
     poverty_line,

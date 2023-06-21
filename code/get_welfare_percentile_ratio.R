@@ -1,6 +1,14 @@
-### get_welfare_percentile_ratio ###
-
-
+#' Calculate the ratio between the welfare at two chosen percentile
+#'
+#' @param numerator_perc Numeric argument between 0 and 1 giving the percentile in the numerator
+#' @param denominator_perc Numeric argument between 0 and 1 giving the percentile in the denominator
+#' @param welfare_measure Numeric vector for which percentile values and subsequent ratio is calculated
+#' @param weights Numeric positive vector giving weights for each observation
+#'
+#' @return A scalar giving the ratio of numerator percentile value to denominator percentile value
+#' @export
+#'
+#' @examples
 get_welfare_percentile_ratio <- function(
     numerator_perc,
     denominator_perc,

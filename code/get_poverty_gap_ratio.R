@@ -1,6 +1,13 @@
-### get_poverty_gap_ratio ###
-
-
+#' Calculate the poverty gap ratio, or P1 in the Foster-Greer-Thorbecke poverty measure
+#'
+#' @param poverty_line A numeric value giving the poverty line used - relevant to the welfare measure
+#' @param welfare_measure A numeric vector giving the welfare measure used
+#' @param weights A numeric vector giving the weights for each observation
+#'
+#' @return A scalar giving the poverty gap ratio
+#' @export
+#'
+#' @examples
 get_poverty_gap_ratio <- function(
     poverty_line,
     welfare_measure,

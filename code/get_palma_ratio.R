@@ -1,5 +1,12 @@
-### get_welfare_palma_ratio ###
-
+#' Calculate the Palma ratio - 90th percentile in the numerator, 40th percentile in denominator
+#'
+#' @param welfare_measure A numeric vector for which the Palma ratio is calculated
+#' @param weights Numeric positive vector giving weights for each observation
+#'
+#' @return A scalar giving the Palma ratio
+#' @export
+#'
+#' @examples
 get_palma_ratio <- function(
     welfare_measure,
     weights = rep(1, length(welfare_measure))/length(welfare_measure)

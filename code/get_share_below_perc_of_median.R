@@ -1,6 +1,13 @@
-### get_share_below_perc_of_median ###
-
-
+#' Calculate the share of all observations having a welfare measure below a specified percentage of the median welfare
+#'
+#' @param percentage Positive scalar giving the percentage of the median, where 1 is equal to 100% of the median - i.e. the median
+#' @param welfare_measure Numeric vector giving the welfare measure for each observation, used both the calculate the median and to find the share of welfare measures below the percentage of that median
+#' @param weights Numeric vector giving the weights for each observation
+#'
+#' @return A scalar giving the share of observations with welfare below chosen percentage of median welfare
+#' @export
+#'
+#' @examples
 get_share_below_perc_of_median <- function(
     percentage,
     welfare_measure,

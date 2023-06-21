@@ -1,6 +1,12 @@
-### get_mean_log_dev ###
-
-
+#' Calculate the mean log deviation inequality measure for given welfare measure
+#'
+#' @param welfare_measure Numeric vector giving welfare for each observation
+#' @param weights Numeric vector giving weights for each observation
+#'
+#' @return Scalar giving the mean log deviation
+#' @export
+#'
+#' @examples
 get_mean_log_dev <- function(
     welfare_measure,
     weights = rep(1, length(welfare_measure))/length(welfare_measure)

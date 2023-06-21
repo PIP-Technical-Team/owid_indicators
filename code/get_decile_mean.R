@@ -1,6 +1,13 @@
-### get_decile_mean ###
-
-
+#' Calculate the mean welfare within the specified decile
+#'
+#' @param decile Integer between 0 and 10 giving the decile for which the mean welfare is calculated
+#' @param welfare_measure Numeric vector used for calculating both the mean and the deciles
+#' @param weights Numeric vector giving the weights of each observation
+#'
+#' @return Scalar output giving the mean welfare within the specified decile
+#' @export
+#'
+#' @examples
 get_decile_mean <- function(
     decile = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
     welfare_measure,

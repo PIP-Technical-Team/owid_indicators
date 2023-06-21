@@ -1,5 +1,13 @@
-### get_poverty_headcount_ratio ###
-
+#' Calculate the poverty headcount ratio, or P0 in the Foster-Greer-Thorbecke poverty measure
+#'
+#' @param poverty_line Scalar giving chosen poverty line, in the same units as the welfare measure
+#' @param welfare_measure Numeric vector giving welfare for each observation
+#' @param weights Numeric vector giving weights for each observation
+#'
+#' @return Scalar giving the poverty headcount ratio
+#' @export
+#'
+#' @examples
 get_poverty_headcount_ratio <- function(
     poverty_line,
     welfare_measure,

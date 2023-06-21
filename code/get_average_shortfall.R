@@ -1,6 +1,13 @@
-### get_average_shortfall ###
-
-
+#' Calculate the average shortfall from the poverty line, averaged across the population below the poverty line
+#'
+#' @param poverty_line A numeric value giving the poverty line used - relevant to the welfare measure
+#' @param welfare_measure A numeric vector giving the welfare measure used
+#' @param weights A numeric vector giving the weights for each observation
+#'
+#' @return Scalar giving the average shortfall
+#' @export
+#'
+#' @examples
 get_average_shortfall <- function(
     poverty_line,
     welfare_measure,

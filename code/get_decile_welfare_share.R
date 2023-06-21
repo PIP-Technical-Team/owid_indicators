@@ -1,6 +1,13 @@
-### get_decile_welfare_share ###
-
-
+#' Calculate the share of total welfare that is attributable to the specified decile
+#'
+#' @param decile An integer between 1 and 10 giving the chosen decile
+#' @param welfare_measure Numeric vector for which total and decile welfare is calculated
+#' @param weights Numeric positive vector giving weights for each observation
+#'
+#' @return Scalar output between 0 and 1 giving the share of total welfare from chosen decile
+#' @export
+#'
+#' @examples
 get_decile_welfare_share <- function(
     decile = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
     welfare_measure,
@@ -56,7 +63,6 @@ get_decile_welfare_share <- function(
 
     # Get Decile Welfare as share of Total Welfare
     decile_share <- decile_total/population_total
-
 
     # Return
     return(decile_share)

@@ -1,7 +1,12 @@
-### get_weighted_median ###
-
-
-
+#' Calculate the weighted median
+#'
+#' @param input_vec Numeric vector for which median is calculated
+#' @param weight_vec Numeric vector giving the weights of each observation
+#'
+#' @return Scalar giving the weighted median
+#' @export
+#'
+#' @examples
 get_weighted_median <- function(
     input_vec,
     weight_vec = rep(1, length(input_vec))/length(input_vec)

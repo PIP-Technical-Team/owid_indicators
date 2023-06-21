@@ -1,6 +1,13 @@
-### get_gini ###
-
-
+#' Find the Gini coefficient for a given welfare measure
+#'
+#' @param welfare_measure Numeric vector for which the gini is calculated
+#' @param weights Numeric positive vector giving weights for each observation
+#'
+#' @return A scalar between 0 and 1, the gini coefficient
+#' @export
+#'
+#' @examples
+#' get_gini(1:10)
 get_gini <- function(
     welfare_measure,
     weights = rep(1, length(welfare_measure))/length(welfare_measure)

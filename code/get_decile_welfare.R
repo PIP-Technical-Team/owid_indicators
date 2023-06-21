@@ -1,6 +1,13 @@
-### get_decile_welfare ###
-
-
+#' Calculate the welfare level at a specified decile
+#'
+#' @param decile Integer between 0 and 10 giving the decile for which the welfare is calculated
+#' @param input_vec Numeric vector used for calculating deciles
+#' @param weight_vec Numeric vector giving the weights of each observation
+#'
+#' @return Scalar output giving the welfare threshold at the specified decile
+#' @export
+#'
+#' @examples
 get_decile_welfare <- function(
     decile = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
     input_vec,

@@ -1,6 +1,13 @@
-### get_total_shortfall ###
-
-
+#' Calculate the total shortfall - i.e. the total needed of welfare measure to theoretically lift all people up to the poverty line
+#'
+#' @param poverty_line A numeric value giving the poverty line used - relevant to the welfare measure
+#' @param welfare_measure A numeric vector giving the welfare measure used
+#' @param weights A numeric vector giving the weights for each observation
+#'
+#' @return Scalar giving the total shortfall
+#' @export
+#'
+#' @examples
 get_total_shortfall <- function(
     poverty_line,
     welfare_measure,
