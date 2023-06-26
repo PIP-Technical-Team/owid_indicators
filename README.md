@@ -31,11 +31,30 @@ The structure of each numbered point is:
 12. Decile welfare share (proportion of the entire pop), level (level below which entire decile falls)
 13. Decile level (level below which entire decile falls)
 14. Percentile ratio (pX/pY), default Palma p10/p90
-Gini
-MLD (what?)
-Wolfson polarization index
+15. Gini
+16. MLD
+17. Wolfson polarization index
 
 Additional functions: get_weighted_median 
+
+#### Categorization of Indicators
+
+Inputs
+- Welfare \& weights
+- Poverty line
+- Additional arguments
+
+Outputs
+- Ratio/percentage
+- Count
+
+Metric/use (recommended)
+- poverty measures (FGT, headcount, poverty gap, income gap, average shortfall, total shortfall, number below threshold)
+- inequality (gini, MLD, percentile ratio, decile welfare share)
+- summary (decile mean/median/threshold)
+
+
+
 
 ### PowerPoint
 
