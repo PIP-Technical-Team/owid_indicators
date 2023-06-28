@@ -119,27 +119,49 @@ get_hl_income_gap_ratio <- function(headcount, povgap){
 #' @param decile2 Numeric vector giving either welfare or welfare share for second decile
 #' @param decile3 Numeric vector giving either welfare or welfare share for third decile
 #' @param decile4 Numeric vector giving either welfare or welfare share for fourth decile
-#' @param decile10 Numeric vector giving either welfare or welfare share for tenth decile
+#' @param top10 Numeric vector giving either welfare or welfare share for tenth decile
+#' @param bottom40 numeric: sum of deciles 1 to 4.
 #'
 #' @return Numeric vector giving the Palma ratio, the ratio of top 10% to bottom 40% welfare
 #' @export
 #'
 #' @examples
-get_hl_palma_ratio <- function(decile1, decile2, decile3, decile4, decile10){
+get_hl_palma_ratio <- function(top10,
+                               bottom40 = NULL,
+                               decile1  = NULL,
+                               decile2  = NULL,
+                               decile3  = NULL,
+                               decile4  = NULL){
 
     # Input checks
-    stopifnot(is.numeric(decile1) & is.vector(decile1)) # numeric vector
-    stopifnot(is.numeric(decile2) & is.vector(decile2)) # numeric vector
-    stopifnot(is.numeric(decile3) & is.vector(decile3)) # numeric vector
-    stopifnot(is.numeric(decile4) & is.vector(decile4)) # numeric vector
-    stopifnot(is.numeric(decile10) & is.vector(decile10)) # numeric vector
-    stopifnot(length(decile1) == length(decile2)) # vectors of same length
-    stopifnot(length(decile1) == length(decile3)) # vectors of same length
-    stopifnot(length(decile1) == length(decile4)) # vectors of same length
-    stopifnot(length(decile1) == length(decile10)) # vectors of same length
+    stopifnot( is.numeric(top10) & is.vector(top10)) # numeric vector)
+    if (is.null(bottom40)) {
+        stopifnot(
+            exprs = {
+                is.numeric(decile1) & is.vector(decile1) # numeric vecto
+                is.numeric(decile2) & is.vector(decile2) # numeric vector
+                is.numeric(decile3) & is.vector(decile3) # numeric vector
+                is.numeric(decile4) & is.vector(decile4) # numeric vector
+                length(decile1) == length(decile2) # vectors of same length
+                length(decile1) == length(decile3) # vectors of same length
+                length(decile1) == length(decile4) # vectors of same length
+                length(decile1) == length(top10)
+            }
+        )
+
+        # create bottom 40
+        bottom40 <- decile1 + decile2 + decile3 + decile4
+    } else {
+        stopifnot(
+            exprs = {
+                is.numeric(bottom40) & is.vector(bottom40) # numeric vecto
+                length(bottom40) == length(top10)
+            }
+        )
+    }
 
     # Palma ratio
-    palma <- decile10/(decile1 + decile2 + decile3 + decile4)
+    palma <- top10/bottom40
 
     # return
     return(palma)
