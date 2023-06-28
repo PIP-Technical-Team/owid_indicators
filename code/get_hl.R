@@ -1,6 +1,15 @@
 
 
 
+#' Calculate the number of poor using headcount and population
+#'
+#' @param headcount A numeric vector giving the headcount ratio
+#' @param pop A numeric vector giving population size
+#'
+#' @return A numeric vector giving number of poor for each observation
+#' @export
+#'
+#' @examples
 get_hl_number_poor <- function(headcount, pop){
 
     # Input checks
@@ -20,6 +29,16 @@ get_hl_number_poor <- function(headcount, pop){
 
 
 
+#' Calculate average shortfall for the poor using headcount, poverty gap ratio, and poverty line
+#'
+#' @param headcount Numeric vector giving headcount ratio, i.e. P0 FGT measure
+#' @param povgap Numeric vector giving poverty gap ratio, i.e. P1 FGT measure
+#' @param povline Numeric vector giving the poverty line
+#'
+#' @return Numeric vector giving average shortfall for the poor in the units of the poverty line
+#' @export
+#'
+#' @examples
 get_hl_average_shortfall <- function(headcount, povgap, povline){
 
     # Input checks
@@ -37,21 +56,19 @@ get_hl_average_shortfall <- function(headcount, povgap, povline){
 
 }
 
-get_hl_average_shortfall(headcount = df_pip$headcount,
-                         povgap = df_pip$poverty_gap,
-                         povline = df_pip$poverty_line) %>% head()
-
-df_pip %>%
-    mutate(
-        pg = get_hl_average_shortfall(headcount, poverty_gap, poverty_line),
-        pg2 = poverty_line*poverty_gap/headcount
-    ) %>% select(
-        headcount, pop, pg, pg2
-    ) %>%
-    head()
 
 
 
+#' Calculate total shortfall from headcount, poverty gap, and poverty line
+#'
+#' @param headcount Numeric vector giving headcount ratio, i.e. P0 FGT measure
+#' @param povgap Numeric vector giving poverty gap ratio, i.e. P1 FGT measure
+#' @param povline Numeric vector giving the poverty line
+#'
+#' @return Numeric vector giving total shortfall in the same units as the poverty line
+#' @export
+#'
+#' @examples
 get_hl_total_shortfall <- function(headcount, povgap, povline){
 
     # Input checks
@@ -70,6 +87,15 @@ get_hl_total_shortfall <- function(headcount, povgap, povline){
 
 
 
+#' Calculate income gap ratio from headcount and poverty gap
+#'
+#' @param headcount Numeric vector giving headcount ratio, i.e. P0 FGT measure
+#' @param povgap Numeric vector giving poverty gap ratio, i.e. P1 FGT measure
+#'
+#' @return Numeric vector giving the income gap ratio
+#' @export
+#'
+#' @examples
 get_hl_income_gap_ratio <- function(headcount, povgap){
 
     # Input checks
@@ -87,6 +113,18 @@ get_hl_income_gap_ratio <- function(headcount, povgap){
 
 
 
+#' Calculate Palma ratio using decile information
+#'
+#' @param decile1 Numeric vector giving either welfare or welfare share for first decile
+#' @param decile2 Numeric vector giving either welfare or welfare share for second decile
+#' @param decile3 Numeric vector giving either welfare or welfare share for third decile
+#' @param decile4 Numeric vector giving either welfare or welfare share for fourth decile
+#' @param decile10 Numeric vector giving either welfare or welfare share for tenth decile
+#'
+#' @return Numeric vector giving the Palma ratio, the ratio of top 10% to bottom 40% welfare
+#' @export
+#'
+#' @examples
 get_hl_palma_ratio <- function(decile1, decile2, decile3, decile4, decile10){
 
     # Input checks
