@@ -170,6 +170,38 @@ get_hl_palma_ratio <- function(top10,
 }
 
 
+#' Calculate ratio of the top 10% to the bottom 10% of the welfare distribution
+#'
+#' @param top10 Numeric vector giving the welfare of the 10th decile - i.e. the top 10%
+#' @param bottom10 Numeric vector giving the welfare of the 1st decile - i.e. the bottom 10%
+#'
+#' @return Numeric vector giving the ratio of the top 10% to the bottom 10% of the welfare distribution
+#' @export
+#'
+#' @examples
+get_hl_top10_bottom10_ratio <- function(
+        top10,
+        bottom10){
+
+    # Input Checks
+    stopifnot(
+        exprs = {
+            is.numeric(top10) # numeric
+            is.numeric(bottom10) # numeric
+            is.vector(top10) # vector
+            is.vector(bottom10) # vector
+            length(top10) == length(bottom10) # two inputs are vectors of same length
+        }
+    )
+
+    # Decile ratio
+    ratio <- top10/bottom10
+
+    # return
+    return(ratio)
+
+
+}
 
 
 
